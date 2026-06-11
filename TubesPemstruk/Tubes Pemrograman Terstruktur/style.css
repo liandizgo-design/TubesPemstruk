@@ -1,0 +1,319 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#000;
+color:#fff;
+overflow-x:hidden;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+padding:30px 10%;
+position:fixed;
+width:100%;
+backdrop-filter:blur(10px);
+-webkit-backdrop-filter: blur(10px);
+background: rgba(0, 0, 0, 0.5);
+
+z-index:9999 !important;
+pointer-events: auto !important;
+position: fixed !important;
+}
+
+.logo{
+font-size:1.4rem;
+font-weight:700;
+}
+
+nav ul{
+display:flex;
+gap:30px;
+list-style:none;
+}
+
+/* Kursor pointer untuk interaksi menu */
+nav ul li {
+cursor: pointer;
+position: relative;
+z-index: 100000;
+}
+
+/* --- LOGIKA PERPINDAHAN WINDOWS/HALAMAN --- */
+.page-view {
+display: none; /* Sembunyikan semua halaman halaman secara default */
+width: 100%;
+position: relative;
+z-index: 1;
+}
+
+.page-view.active {
+display: block; /* Tampilkan hanya halaman yang memiliki class active */
+}
+/* ------------------------------------------ */
+
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+padding:0 10%;
+position: relative; /* Ditambahkan untuk membungkus video absolute */
+overflow: hidden;
+z-index: 2;
+}
+
+/* Styling Video Background */
+.hero-video {
+position: absolute;
+top: 50%;
+left: 50%;
+min-width: 100%;
+min-height: 100%;
+width: auto;
+height: auto;
+z-index: -2 !important;
+transform: translate(-50%, -50%);
+object-fit: cover;
+}
+
+/* Overlay gelap agar teks awalmu tetap terbaca kontras */
+.video-overlay {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.65);
+z-index: -1 !important;
+}
+
+.hero-content {
+position: relative;
+z-index: 1;
+}
+
+.hero h1{
+font-size:6rem;
+font-family:serif;
+line-height:1;
+margin:20px 0;
+}
+
+.tagline{
+color:#999;
+max-width:500px;
+}
+
+.buttons{
+margin-top:30px;
+display:flex;
+gap:15px;
+}
+
+button{
+padding:15px 30px;
+border:none;
+cursor:pointer;
+transition:.3s;
+}
+
+.primary{
+background:white;
+color:black;
+}
+
+.secondary{
+background:transparent;
+border:1px solid white;
+color:white;
+}
+
+button:hover{
+transform:translateY(-4px);
+}
+
+.about,
+.programs,
+.quote,
+.cta{
+padding:120px 10%;
+}
+
+.about h2,
+.programs h2{
+font-size:3rem;
+margin-bottom:20px;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+padding:100px 10%;
+border-top:1px solid #222;
+border-bottom:1px solid #222;
+}
+
+.stat h3{
+font-size:4rem;
+font-family:serif;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:20px;
+margin-top:50px;
+}
+
+.card{
+padding:40px;
+border:1px solid #222222;
+transition:.4s;
+}
+
+.card:hover{
+color:black;
+transform:translateY(-8px);
+}
+
+.quote{
+text-align:center;
+}
+
+.quote h2{
+font-size:4rem;
+font-family:serif;
+max-width:900px;
+margin:auto;
+}
+
+.cta{
+text-align:center;
+}
+
+.cta h2{
+font-size:4rem;
+margin-bottom:40px;
+}
+
+/* --- LOGIKA PERPINDAHAN WINDOWS (SPA MANUAL) --- */
+.page-view {
+    display: none; /* Menyembunyikan seluruh halaman secara total */
+}
+
+.page-view.active {
+    display: block; /* Hanya memunculkan halaman yang dipilih */
+}
+
+nav ul li {
+    cursor: pointer; /* Memberikan efek kursor tangan pada navbar */
+}
+
+/* --- BACKGROUND VIDEO HERO SETTINGS --- */
+.hero {
+    position: relative; /* Wajib agar elemen video bisa memposisikan diri di belakang teks */
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -2;
+    transform: translate(-50%, -50%);
+    object-fit: cover; /* Memotong video secara proporsional agar memenuhi layar background */
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65); /* Layer gelap transparan agar teks putihmu tetap terbaca kontras */
+    z-index: -1;
+}
+
+/* --- STYLING COMPANY PROFILE FOOTER --- */
+footer {
+    background: #0a0a0a;
+    border-top: 1px solid #1a1a1a;
+    padding: 80px 10% 30px 10%;
+    color: #fff;
+}
+
+.footer-container {
+    display: table; /* Menggunakan display table untuk kompatibilitas layout menyamping tanpa framework */
+    width: 100%;
+    table-layout: fixed;
+}
+
+.footer-col {
+    display: table-cell;
+    vertical-align: top;
+    padding: 0 15px;
+}
+
+.footer-logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.footer-desc {
+    color: #999;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+footer h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.footer-links, .footer-info {
+    list-style: none;
+}
+
+.footer-links li, .footer-info li {
+    color: #999;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+}
+
+.footer-links li {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.footer-links li:hover {
+    color: #fff;
+    padding-left: 5px;
+}
+
+.footer-links a {
+    color: #999;
+    text-decoration: none;
+}
+
+.footer-bottom {
+    margin-top: 60px;
+    padding-top: 25px;
+    border-top: 1px solid #1a1a1a;
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #666;
+    font-size: 0.85rem;
+}
