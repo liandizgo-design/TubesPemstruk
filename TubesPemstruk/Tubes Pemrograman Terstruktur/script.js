@@ -30,17 +30,17 @@ navigationTriggers.forEach(trigger => {
     });
 });
 
-// --- HOVER RADIAL GRADIENT PADA KARTU ---
+// HOVER RADIAL GRADIENT PADA KARTU
 document.querySelectorAll('.card').forEach(card => {
     card.addEventListener('mousemove', (e) => {
-        card.style.background = `radial-gradient(circle at ${e.offsetX}px ${e.offsetY}px, rgba(255,255,255,0.15), rgba(255,255,255,0.02))`;
+        card.style.background = `radial-gradient(circle at ${e.offsetX}px ${e.offsetY}px, rgba(255,255,255,0.15), rgba(125, 22, 22, 0.02))`;
     });
     card.addEventListener('mouseleave', () => {
         card.style.background = 'transparent';
     });
 });
 
-// --- SWIPER DOCUMENTATION ---
+// SWIPER DOCUMENTATION
 const documentationSwiper = new Swiper('.documentationSwiper', {
     effect: 'coverflow',
     grabCursor: true,
@@ -69,7 +69,7 @@ const documentationSwiper = new Swiper('.documentationSwiper', {
     },
 });
 
-// --- SCROLL REVEAL ---
+// SCROLL REVEAL
 const elementsToReveal = document.querySelectorAll('.card, .stat, .team-member, section h2, .quote h2');
 
 elementsToReveal.forEach(el => el.classList.add('reveal'));
@@ -86,14 +86,14 @@ const scrollObserver = new IntersectionObserver((entries) => {
 
 elementsToReveal.forEach(el => scrollObserver.observe(el));
 
-// --- ACCORDION STATS ---
+// ACCORDION STATS
 document.querySelectorAll('.stat').forEach(box => {
     box.addEventListener('click', () => {
         box.classList.toggle('active-box');
     });
 });
 
-// --- SHORTCUT PROGRAM DI FOOTER ---
+// SHORTCUT PROGRAM FOOTER
 document.querySelectorAll('.footer-program-link').forEach(shortcut => {
     shortcut.addEventListener('click', () => {
         const targetIndex = shortcut.getAttribute('data-index');
